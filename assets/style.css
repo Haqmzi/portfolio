@@ -74,13 +74,13 @@ p { margin: 0 0 1em; }
 .hero figcaption, .caption { font-size: 14px; color: var(--muted); margin-top: 10px; }
 
 /* card grid */
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 32px); margin-top: 40px; }
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2.4vw, 32px); margin-top: 40px; }
 .card { text-decoration: none; display: block; }
 .card .thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink-2); }
 .card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
 .card:hover .thumb img { transform: scale(1.04); }
 .card .num { font-family: "Anton"; color: var(--orange); font-size: 22px; margin-top: 14px; display: block; }
-.card h3 { font-size: 26px; margin-top: 4px; }
+.card h3 { font-size: 24px; margin-top: 4px; }
 .card p { font-size: 15px; color: var(--muted); margin: 6px 0 0; }
 
 /* project blocks (work page) */
@@ -115,6 +115,18 @@ p { margin: 0 0 1em; }
 .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); margin: 0 !important; font-size: 16px; }
 .facts li span:first-child { color: var(--muted); }
 
+/* logo (about page) */
+.logo-show .intro { max-width: 40em; margin-top: 22px; }
+.logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.4vw, 32px); margin-top: 40px; }
+.logo-grid figure { margin: 0; }
+.logo-tile { aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; background: var(--ink-2); }
+.logo-tile img { width: 62%; }
+.logo-tile.cream { background: var(--cream); }
+.logo-tile.orange { background: var(--orange); }
+.logo-sizes { display: flex; align-items: flex-end; gap: clamp(20px, 4vw, 48px); flex-wrap: wrap; margin-top: 32px; padding: 28px; border: 1px solid var(--line); }
+.logo-sizes div { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.logo-sizes .caption { margin: 0; }
+
 /* credits */
 .credits { font-size: 15px; color: var(--muted); columns: 2; column-gap: 48px; padding-left: 1.1em; }
 .credits li { break-inside: avoid; margin-bottom: 8px; }
@@ -128,17 +140,19 @@ p { margin: 0 0 1em; }
 .site-footer a:hover { color: var(--orange); }
 
 /* ---------- small screens ---------- */
+@media (max-width: 1100px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 900px) {
   .hero .wrap, .project .wrap, .feature .wrap, .about .wrap { grid-template-columns: 1fr; }
   .project .text { position: static; }
-  .cards { grid-template-columns: 1fr 1fr; }
   .media.four { grid-template-columns: 1fr 1fr; }
   .credits { columns: 1; }
 }
 @media (max-width: 560px) {
   body { font-size: 17px; }
   .cards { grid-template-columns: 1fr; }
-  .media.two, .media.three { grid-template-columns: 1fr; }
+  .media.two, .media.three, .logo-grid { grid-template-columns: 1fr; }
   .brand span { font-size: 12px; letter-spacing: .14em; }
   .nav a { font-size: 12px; letter-spacing: .1em; }
 }
